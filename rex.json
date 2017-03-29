@@ -1,0 +1,5 @@
+{
+    "https://github.com/martastain/nxtools" : {"python-path" : true},
+    "https://github.com/martastain/pyosc" : {"python-path" : true},
+    "https://github.com/martastain/python-websockets" : {"python-path" : true}
+}
