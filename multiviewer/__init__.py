@@ -34,10 +34,10 @@ class MultiViewer(object):
         self.osc_host = kwargs.get("osc_host", "localhost")
         self.osc_port = kwargs.get("osc_port", 5253)
         self.osd_host = kwargs.get("osd_host", "")
-        self.osd_port = kwargs.get("osd_port", 8081)
+        self.osd_port = kwargs.get("osd_port", 8082)
         self.osd_layer = kwargs.get("osd_layer", 100)
         self.osd_template = kwargs.get("osd_template", "mvboot")
-        self.ws_host = kwargs.get("ws_host", "")
+        self.ws_host = kwargs.get("ws_host", "localhost")
         self.ws_port = kwargs.get("ws_port", 9001)
 
         assert type(channels) == list

@@ -20,15 +20,15 @@ from multiviewer import *
 #          Defaults to "Channel X", where X is caspar channel id
 
 channel_setup = [
-        MultiViewerChannel(1, title="Demo 2",      source="d1 LOOP"),
-        MultiViewerChannel(2, title="Demo 2",      source="d2 LOOP"),
-        MultiViewerChannel(3, title="Demo 3",      source="d3 LOOP"),
-        MultiViewerChannel(4, title="Demo 4",      source="d4 LOOP"),
+        MultiViewerChannel(1, title="Demo 2",      source="d1_HD LOOP"),
+        MultiViewerChannel(2, title="Demo 2",      source="d2_HD LOOP"),
+        MultiViewerChannel(3, title="Demo 3",      source="d3_HD LOOP"),
+        MultiViewerChannel(4, title="Demo 4",      source="d4_HD LOOP"),
         MultiViewerChannel(5, title="Demo 5",      source="d5 LOOP"),
         MultiViewerChannel(6, title="Demo 6",      source="d6 LOOP"),
         MultiViewerChannel(7, title="Red color",   source="#cc0000"),
         MultiViewerChannel(8, title="Green color", source="#00cc00"),
-        MultiViewerChannel(9, title="Blue color",  source="#0000cc"),
+        MultiViewerChannel(9, title="Blue color"),
     ]
 
 # Caspar channel ID of the multiviewer output
@@ -40,6 +40,7 @@ mv_channel = 10
 try:
     settings = json.load(open("settings.json"))
 except:
+    log_traceback("Unable to open settings file. Using defaults.")
     settings = {}
 
 

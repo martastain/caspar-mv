@@ -7,6 +7,7 @@ __all__ = ["OSC"]
 class OSC(object):
     def __init__(self, parent):
         self.parent = parent
+        logging.info("init osc @ {}:{}".format(self.parent.osc_host, self.parent.osc_port))
         self.server = OSCServer((self.parent.osc_host, self.parent.osc_port))
         self.server.addMsgHandler("default", self.message_handler)
         logging.info("Starting osc server")
