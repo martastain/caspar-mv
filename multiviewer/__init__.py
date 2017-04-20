@@ -80,6 +80,9 @@ class MultiViewer(object):
 
     def reset(self):
         self.query("CLEAR {}".format(self.mv_channel))
+        self.query("CHANNEL_GRID")
+        self.query("MIXER {} MASTERVOLUME 0".format(self.mv_channels))
+#        self.query("REMOVE 10 SCREEN")
         self.query("PLAY {}-{} {}".format(self.mv_channel, self.osd_layer, self.osd_template))
 
         for i, channel in enumerate(self.channels):
@@ -88,10 +91,17 @@ class MultiViewer(object):
             if source:
                 self.query("PLAY {}-1 {}".format(channel.caspar_id, source))
 
-            self.query("MIXER {}-{} VOLUME 0".format(self.mv_channel, i))
 
-            x = (i%3) * self.channel_scale
-            y = int(i/3) * self.channel_scale
-
-            self.query("MIXER {}-{} FILL {} {} {} {}".format(self.mv_channel, i, x, y, self.channel_scale, self.channel_scale))
-            self.query("PLAY {}-{} route://{}".format(self.mv_channel, i, channel.caspar_id))
+#        for i, channel in enumerate(self.channels):
+#            self.query("CLEAR {}".format(channel.caspar_id))
+#            source = channel.source
+#            if source:
+#                self.query("PLAY {}-1 {}".format(channel.caspar_id, source))
+#
+#            self.query("MIXER {}-{} VOLUME 0".format(self.mv_channel, i))
+#
+#            x = (i%3) * self.channel_scale
+#            y = int(i/3) * self.channel_scale
+#
+#            self.query("MIXER {}-{} FILL {} {} {} {}".format(self.mv_channel, i, x, y, self.channel_scale, self.channel_scale))
+#            self.query("PLAY {}-{} route://{}".format(self.mv_channel, i, channel.caspar_id))
